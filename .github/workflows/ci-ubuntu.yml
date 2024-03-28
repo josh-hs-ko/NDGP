@@ -2,6 +2,7 @@
 
 name: Check Everything.agda
 on:
+  workflow_dispatch: null
   push:
     paths:
       - .github/workflows/ci-ubuntu.yml
@@ -46,7 +47,7 @@ env:
   CABAL_INSTALL: cabal install --installdir=$HOME/.local/bin --overwrite-policy=always --ghc-options='+RTS -M8G -RTS'
 
   AGDA_REPO   : agda/agda
-  AGDA_COMMIT : 1b44372081e5b21b1a368d0e63cc09a53c48d20b
+  AGDA_COMMIT : 714c7d2c76c5ffda3180e95c28669259f0dc5b5c
 
 jobs:
   test:
@@ -102,7 +103,6 @@ jobs:
         if: ${{ !steps.cache.outputs.cache-hit }}
         run: |
           cd agda
-          git apply ../Agda-unquoteDecl-data.diff
           ${{ env.CABAL_INSTALL }} -foptimise-heavily
           strip ${{ env.CABAL_BIN }}/agda
 

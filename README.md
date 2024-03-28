@@ -13,19 +13,10 @@ There are also highlighted and clickable HTML documents for traversing the modul
 ## Requirement
 
 * 6GB of memory or above.
-* The development version of Agda 2.6.3 ([commit 1b44372](https://github.com/agda/agda/commit/1b44372081e5b21b1a368d0e63cc09a53c48d20b))
-  with the patch
-  * `Agda-unquoteDecl-data.diff` to extended Agda with an experimental syntax `unquoteDecl data`
-
-## Patch & compile Agda
-1. `git clone https://github.com/agda/agda.git`
-2. `cd agda && git checkout 1b44372`
-3. `git apply ../Agda-unquoteDecl-data.diff`
-4. `make install-bin`
-5. Check the Agda binary version by `agda-2.6.3 -V`, which should output `Agda version 2.6.3-1b44372-dirty`
+* Agda 2.6.4 (or above, with the experimental syntax `unquoteDecl data`)
 
 ## Check all modules
-Type `make AGDA_BIN=agda-2.6.3` to check all modules in the `src` directory with the patched Agda binary.
+Type `make` to check all modules in the `src` directory with the patched Agda binary.
 
 ## Details
 
